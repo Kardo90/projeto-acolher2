@@ -58,7 +58,6 @@ O **Projeto Acolher** aplica conceitos avançados de:
 ---
 
 ## 👥 Integrantes & Equipe
-- **Aluno**: Ricardo Martins dos Santos (RA: 25213296)
 - **Orientadora**: Julianne Santana Cavalcanti
 - **Polo**: Céu Rosa da China • Santo André - SP
 - **Curso**: Engenharia da Computação / TI — UNIVESP (Projeto Integrador II)
