@@ -317,3 +317,30 @@ const StockModule = {
 };
 
 window.StockModule = StockModule;
+let leitorQrCode = null;
+
+function abrirLeitorCamera() {
+  const areaLeitor = document.getElementById("area-leitor-camera");
+  areaLeitor.style.display = "block";
+
+  // Inicializa o leitor na div "area-leitor-camera"
+  leitorQrCode = new Html5Qrcode(
+    "area-leitor-camera",
+    { 
+      fps: 10, 
+      qrbox: { width: 250, height: 150 }, // Área retangular ideal para código de barras 1D (EAN-13)
+      supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
+    },
+    /* verbose= */ false
+  );
+
+  // Executa quando a câmera lê o código com sucesso
+  leitorQrCode.render((codigoLido) => {
+    // 1. Preenche o campo de texto com o número do código de barras
+    document.getElementById("codigo_barras").value = codigoLido;
+    
+    // 2. Encerra a câmera e esconde o container
+    leitorQrCode.clear();
+    areaLeitor.style.display = "none";
+  });
+}
