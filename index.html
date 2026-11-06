@@ -7,6 +7,7 @@
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="[suspicious link removed]"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -341,7 +342,9 @@
             <button onclick="DonationsModule.openAddModal()" class="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-sm transition flex items-center gap-2">
               <i data-lucide="plus-circle" class="w-4 h-4"></i> Registrar Nova Doação
             </button>
-          </div>
+            
+          </div>            
+         
 
           <!-- Filtros -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
@@ -666,6 +669,23 @@
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
+      <!-- CAMPO DO CÓDIGO DE BARRAS COM LEITOR DE CÂMERA -->
+<div class="space-y-1">
+  <label for="stock-barcode" class="block text-xs font-semibold text-slate-600">Código de Barras (EAN):</label>
+  
+  <div class="flex gap-2">
+    <!-- Campo numérico/texto -->
+    <input type="text" id="stock-barcode" class="w-full px-3 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Digite ou escaneie o código">
+    
+    <!-- Botão da Câmera -->
+    <button type="button" onclick="alternarScannerCamera('stock-barcode', 'area-scanner-stock')" class="px-3 py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap">
+      <i data-lucide="camera" class="w-4 h-4"></i> Câmera
+    </button>
+  </div>
+
+  <!-- Container oculto onde o vídeo da câmera será exibido -->
+  <div id="area-scanner-stock" class="mt-2 hidden w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-50"></div>
+</div>
 
       <form id="stock-form" onsubmit="StockModule.save(event)" class="space-y-4 text-xs">
         <input type="hidden" id="stock-id">
