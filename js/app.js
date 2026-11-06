@@ -133,5 +133,12 @@ const App = {
 document.addEventListener('DOMContentLoaded', () => {
   App.init();
 });
-
+// Registra o Service Worker para habilitar o PWA no Android
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('PWA registrado com sucesso!'))
+      .catch(err => console.error('Falha ao registrar PWA:', err));
+  });
+}
 window.App = App;
